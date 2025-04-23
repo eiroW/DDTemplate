@@ -252,12 +252,13 @@ if __name__ == '__main__':
     # torch._dynamo.config.suppress_errors = True
     parser.add_argument('total_epochs', type=int, help='Total epochs to train the model')
     parser.add_argument('save_every', type=int, help='How often to save a snapshot')
-    parser.add_argument('tracts', type=str, help='Tracts name prepared to be trained')
+    parser.add_argument('tract', type=str, help='Tract name prepared to be trained')
     parser.add_argument('--batch_size', default=1, type=int, help='Input batch size on each device (default: 32)')
     parser.add_argument('--save_path_prefix', default='snapshot', type=str, help='Output file of trained model')
     parser.add_argument('--init_atlas', type=str, help=' File of init atlas')
     parser.add_argument('--tracts_num', default=len(backbone_tracts), type=int, help='Number of tracts to train')
+    parser.add_argument('--pretrain', default=False, type=bool, help='Pretrain the model')
     args = parser.parse_args()
     logger = get_logger(args.save_path_prefix.split('/')[-1])
     backbone_tracts = backbone_tracts[:args.tracts_num]
-    main(args.total_epochs, args.save_every, args.batch_size, args.save_path_prefix+'.pt', args.tracts,pretrained=False,init_atlas_file=args.init_atlas)
+    main(args.total_epochs, args.save_every, args.batch_size, args.save_path_prefix+'.pt', args.tracts,pretrained=args.pretrain,init_atlas_file=args.init_atlas)
