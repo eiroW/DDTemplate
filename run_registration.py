@@ -1,7 +1,7 @@
 import subprocess
 args_list = [['python', 'fibergeneration.py',
               '--output_suffix', 'path/to/output',
-              '--model_path', 'path/to/model.pt',
+              '--model_path', 'assets/model/whole_model.pt',
               '--data_path', 'path/to/Datasets/HCP_test',
               '--sub_num', '50',
               '--device', 'cuda:0',

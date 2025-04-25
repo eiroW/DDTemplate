@@ -46,6 +46,7 @@ torchrun  --nproc-per-node=USED_DEVICES --master-port=ANY_AVAILIBLE_PORT train.p
 ```
 
 ## Registration
+The pretrained model and templates (including both FA and tract-specific ) are available on Hugging Face at [DDTemplate](https://huggingface.co/eiroW/DDTemplate). They can be used to register any data to the provided templates.
 ```[sh]
 python run_registration.py
 ```
